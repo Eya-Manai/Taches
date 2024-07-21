@@ -1,0 +1,84 @@
+<!-- Button trigger modal -->
+<div class="text-center">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Ajouter une tache
+  </button>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter Tache</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="md-3">
+          <label class="label-form">Titre</label>
+          <input
+            class="form-control"
+            placeholder="titre"
+            name="titre"
+            [(ngModel)]="tache.titre"
+          />
+        </div>
+        <div class="md-3">
+          <label class="label-form">Date</label>
+          <input
+            class="form-control"
+            type="datetime-local"
+            placeholder="Date et heure"
+            name="date"
+            [(ngModel)]="tache.dateHeure"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fermer
+        </button>
+        <button type="button" (click)="addTache()" class="btn btn-primary">
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Indice</th>
+      <th>Titre</th>
+      <th>Date et Heure</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tch of taches; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ tch.titre }}</td>
+      <td>{{ tch.dateHeure }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteTache(i)">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
