@@ -12,6 +12,7 @@ export class AddtacheComponent {
   constructor(private tacheService: TacheService) {}
 
   addTache() {
+    localStorage.setItem('tache', this.tache.titre);
     this.tacheService.addTache(this.tache);
   }
 }

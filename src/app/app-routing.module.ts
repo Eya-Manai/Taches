@@ -5,7 +5,7 @@ import { AddtacheComponent } from './addtache/addtache.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tache', pathMatch: 'full' },
-  { path: 'tache', component: AddtacheComponent },
+  { path: 'add', component: AddtacheComponent },
   { path: 'taches', component: TachesComponent },
 ];
 
