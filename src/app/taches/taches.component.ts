@@ -16,6 +16,7 @@ export class TachesComponent {
 
   addTache() {
     this.tacheService.addTache(this.tache);
+    localStorage.setItem('tache', this.tache.titre);
     this.tache = {} as Tache;
   }
 

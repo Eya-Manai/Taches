@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Tache } from '../shared/interfaces/tache';
 import { TacheService } from '../shared/service/tache.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addtache',
@@ -9,10 +10,10 @@ import { TacheService } from '../shared/service/tache.service';
 })
 export class AddtacheComponent {
   tache = {} as Tache;
-  constructor(private tacheService: TacheService) {}
+  constructor(private tacheService: TacheService, private route: Router) {}
 
   addTache() {
-    localStorage.setItem('tache', this.tache.titre);
+    this.route.navigate(['../taches']);
     this.tacheService.addTache(this.tache);
   }
 }
